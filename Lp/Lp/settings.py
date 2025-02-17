@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 
 # Application definition
 
@@ -76,10 +78,9 @@ WSGI_APPLICATION = 'Lp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'landingpage',
-        'USER': 'root',
+        'USER': 'richie',
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '3306',
