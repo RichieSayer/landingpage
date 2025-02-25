@@ -1,0 +1,7 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+<p>Total Users: {{ user_count }}</p>
+<a href="{% url 'admin_user_list' %}">Manage Users</a>
+{% endblock %}
