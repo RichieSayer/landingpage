@@ -1,7 +1,11 @@
 {% extends "accounts/base.html" %}
 
 {% block content %}
-<h1>Admin Dashboard</h1>
-<p>Total Users: {{ user_count }}</p>
-<a href="{% url 'admin_user_list' %}">Manage Users</a>
+<div class="container mt-4">
+    <div class="card shadow-sm p-4">
+        <h1 class="mb-3">Admin Dashboard</h1>
+        <p class="fs-5">Total Users: <strong>{{ user_count }}</strong></p>
+        <a href="{% url 'admin_user_list' %}" class="btn btn-primary">Manage Users</a>
+    </div>
+</div>
 {% endblock %}

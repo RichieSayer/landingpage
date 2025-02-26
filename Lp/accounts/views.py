@@ -73,9 +73,13 @@ def admin_user_edit(request, pk):
     if request.method == 'POST':
         form = UserEditForm(request.POST, instance=user)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'User updated successfully.')
-            return redirect('admin_user_list')
+            result = form.save()  # Save the form and handle deletion
+            if result is None:  # User was deleted
+                messages.success(request, 'User deleted successfully.')
+                return redirect('admin_user_list')  # Redirect to user list after deletion
+            else:
+                messages.success(request, 'User updated successfully.')
+                return redirect('admin_user_list')
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
